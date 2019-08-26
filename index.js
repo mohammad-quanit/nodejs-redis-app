@@ -35,7 +35,7 @@ function cache(req, res, next) {
     } else {
       next();
     }
-  })
+  });
 }
 
 function setResponse(username, repos) {
@@ -45,3 +45,5 @@ function setResponse(username, repos) {
 app.get('/repos/:username', cache, getRepos);
 
 app.listen(PORT, () => console.log(`Running on port ${PORT}`));
+
+module.exports = app; // for testing
